@@ -8,22 +8,24 @@
     <title>Result</title>
 </head>
 <body>
-    <h1 class="text-center mt-4">Search Result <span style="color: gray;">></span> AEVENGERS</h1>
-    <div class="card container mt-4 w-75">
+    <h1 class="text-center mt-4">Search Result <span style="color: gray;">></span> <%-  query.toUpperCase() %></h1>
+    <% data.results.forEach((movie)=>{  %>
+      <div class="card container mt-4 w-75">
         <div class="row g-0 h-40">
           <div class="col-md-3">
-            <img src="..." class="img-fluid rounded-start" alt="movie image">
+            <img src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2<%= movie.backdrop_path %>" class="img-fluid rounded-start" alt="movie image">
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h1 class="card-title">Card title</h1>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text"><small class="text-body-secondary"><b>Last updated:</b> 3 mins ago</small></p>
-              <p class="card-text"><small class="text-body-secondary"><b>Last updated:</b> 3 mins ago</small></p>
-              <p class="card-text"><small class="text-body-secondary"><b>Last updated:</b> 3 mins ago</small></p>
+              <h1 class="card-title"><%-  movie.original_title  %></h1>
+              <p class="card-text"><%-  movie.overview  %></p>
+              <p class="card-text"><small class="text-body-secondary"><b>Date Published:</b> <%-  movie.release_date  %></small></p>
+              <p class="card-text"><small class="text-body-secondary"><b>Total Votes:</b> <%- movie.vote_count  %></small></p>
+              <p class="card-text"><small class="text-body-secondary"><b>Average Rating:</b> <%-  movie.vote_average  %></small></p>
             </div>
           </div>
         </div>
       </div>
+    <%  })  %>
 </body>
 </html>
